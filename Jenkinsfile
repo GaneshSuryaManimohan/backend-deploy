@@ -22,6 +22,30 @@ pipeline {
                 }
             }
         }
+        stage('Init Terraform'){
+            steps{
+                sh """
+                    cd terraform
+                    terraform init
+                """
+            }
+        }
+        stage('Plan Terraform'){
+            steps{
+                sh """
+                    cd terraform
+                    terraform plan -var="${params.APP_VERSION}"
+                """
+            }
+        }
+        // stage('Apply Terraform'){
+        //     steps{
+        //         sh """
+        //             cd terraform
+        //             terraform apply -auto-approve 
+        //         """
+        //     }
+        // }
 
     }
     post {
