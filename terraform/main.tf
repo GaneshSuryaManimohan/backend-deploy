@@ -32,7 +32,7 @@ resource "null_resource" "backend_setup" {
   provisioner "remote-exec" {
     inline = [ 
       "chmod +x /tmp/backend.sh", # make the script executable
-      "sudo bash /tmp/backend.sh ${var.common_tags.Component} ${var.environment}" # execute the script with component and environment as arguments
+      "sudo bash /tmp/backend.sh ${var.common_tags.Component} ${var.environment} ${var.app_version}" # execute the script with component and environment as arguments
      ]
   }
 }
