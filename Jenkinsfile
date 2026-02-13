@@ -34,7 +34,7 @@ pipeline {
             steps{
                 sh """
                     cd terraform
-                    terraform plan -var="${params.APP_VERSION}"
+                    terraform plan -var="app_version=${params.APP_VERSION}"
                 """
             }
         }

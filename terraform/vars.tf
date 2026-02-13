@@ -22,4 +22,5 @@ variable "common_tags" {
 }
 
 variable "app_version" {
+  type = string
 }
